@@ -1,3 +1,12 @@
+<!-- Destroyしたら、Book was successfully destroyed.　と表示 -->
+<% if flash[:alert] %>
+  <div class="flash">
+  	<%= flash[:alert] %>
+  </div>
+<% end %>
+
+<!-- ここから一覧画面 -->
+
 <h1>Books</h1>
 
 <table>
@@ -22,7 +31,8 @@
 	</tbody>
 </table>
 
-
+<!-- ここまで一覧画面 -->
+<!-- ここから投稿画面 -->
 
 <h2>New book</h2>
 
@@ -36,13 +46,22 @@
 		</ul>
 	<% end %>
 
-	<h4>Title</h4>
-	<%= f.text_field :title %>
+	<div class="field">
+		<%= f.label :title %><br>
+		<%= f.text_field :title %>
+	</div>
 
-	<h4>Body</h4>
-	<%= f.text_area :body %>
+	<div class="field">
+		<%= f.label :body %><br>
+		<%= f.text_area :body %>
+	</div>
 
-	<%= f.submit 'Create Book' %>
+	<div class="actions">
+		<%= f.submit 'Create Book' %>
+	</div>
 
 <% end %>
+
+<!-- ここまで投稿画面 -->
+
 
